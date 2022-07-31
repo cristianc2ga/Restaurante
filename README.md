@@ -15,7 +15,7 @@
 
 
 ## Acerca del proyecto
-Sistema básico de reserva en restaurantes  hecho con NodeJS, Express,Express Validator MySQL, Ejs.
+Sistema básico de reservas en restaurantes  hecho con NodeJS, Express,Express Validator MySQL, Ejs.
 
 ## Consideraciones
 Antes de levantar el servidor local hay que crear las tablas en MySQL.
@@ -52,5 +52,5 @@ Al dar click en crear reserva se redirige a la vista de restaurantes disponibles
 #### Vistar creación de reserva en el restaurante seleccionado
 ![imagen crud reservas](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/crearReserva.PNG)
 #### Vistar edición de reserva
-El campo de la mesa se actualizan las mesas disponibles, si se selecciona una mesa diferente a las disponibles se devuelve un error 400, para indicar que se debe seleccionar otra mesa.
+Sbore el campo de la mesa se actualizan las mesas disponibles, si se selecciona una mesa diferente a las disponibles se devuelve un error 400, para indicar que se debe seleccionar otra mesa.
 ![imagen crud reservas](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/editarReserva.PNG)
