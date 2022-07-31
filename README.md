@@ -5,7 +5,7 @@
   <h3 align="center">Restaurante</h3>
 
   <p align="center">
-    Sistema de reservas en restaurantes básico. 
+    Sistema básico de reservas en restaurantes . 
     <br />
     
   </p>
@@ -15,7 +15,7 @@
 
 
 ## Acerca del proyecto
-Sistema de reserva en restaurantes básico hecho con NodeJS, Express,Express Validator MySQL, Ejs.
+Sistema básico de reserva en restaurantes  hecho con NodeJS, Express,Express Validator MySQL, Ejs.
 
 ## Consideraciones
 Antes de levantar el servidor local hay que crear las tablas en MySQL.
@@ -28,5 +28,10 @@ Antes de levantar el servidor local hay que crear las tablas en MySQL.
 ## CRUD modulo restaurantes
 ![imagen crud restaurantes](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/crudRestaurantes.PNG)
 
+### Vista de los restaurantes registrados
+![imagen crud restaurantes](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/indexRestaurantes.PNG)
+
+###  Vista creación de restaurante
+![imagen crud restaurantes](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/crearRestaurantes.PNG)
 ## CRUD modulo reservas
 ![imagen crud reservas](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/crudReservas.PNG)
