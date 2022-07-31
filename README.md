@@ -12,6 +12,6 @@
 </p>
 ## Acerca del proyecto
 
-[![imagen home](https://drive.google.com/file/d/11bYsw4xxdJogUYn4a_pdw_2HLjDIZUoT/view?usp=sharing]
+[![imagen home](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/home.jpg]
 
 Sistema de reserva en restaurantes básico hecho con NodeJS, Express,Express Validator MySQL, Ejs.
