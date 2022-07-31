@@ -45,6 +45,9 @@ Validación realizada del lado del cliente (todos los campos requeridos menos la
 
 ### Vista creación de reserva
 Al dar click en crear reserva se redirige a la vista de restaurantes disponibles (restaurantes con reservas menores a 15), todos los campos son requeridos (validación del lado del cliente, fechas anteriores a la actual no son validadas).
+#### Vista todas las reservas
 ![imagen crud reservas](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/indexReserva.PNG)
-![imagen crud reservas](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/crearReserva.PNG)
+#### Vista restaurantes disponibles para reservar
 ![imagen crud reservas](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/disponibles.PNG)
+#### Vistar creación de reserva en el restaurante seleccionado
+![imagen crud reservas](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/crearReserva.PNG)
