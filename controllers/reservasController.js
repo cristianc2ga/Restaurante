@@ -163,8 +163,8 @@ module.exports = {
                                         
 
                                         let existeElemento = mesasDisponibles.includes( parseInt(req.body.mesa) )
-                                        console.log();
-                                        if(existeElemento && parseInt(req.body.mesa) != registro.mesa){
+                                        console.log(existeElemento);
+                                        if(existeElemento && parseInt(req.body.mesa) == registro.mesa){
                                             return res.status(400).send("Esta mesa ya esta reservada regrese y seleccione una de las mesas disponibles");
                                         }
                                         reserva.actualizar(req.body)
