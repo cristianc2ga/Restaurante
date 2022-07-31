@@ -29,9 +29,22 @@ Antes de levantar el servidor local hay que crear las tablas en MySQL.
 ![imagen crud restaurantes](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/crudRestaurantes.PNG)
 
 ### Vista de los restaurantes registrados
+En esta vista para cada restaurante se tiene dos acciones editar y borrar el restaurante.
 ![imagen crud restaurantes](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/indexRestaurantes.PNG)
 
 ###  Vista creación de restaurante
+Todos los campos son requeridos (excepto la imagen) validación realizada del lado del servidor con express validator.
 ![imagen crud restaurantes](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/crearRestaurantes.PNG)
+
+### Vista edición campos del restaurante
+Validación realizada del lado del cliente (todos los campos requeridos menos la imagen).
+![imagen crud restaurantes](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/editarRestaurante.PNG)
+
 ## CRUD modulo reservas
 ![imagen crud reservas](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/crudReservas.PNG)
+
+### Vista creación de reserva
+Al dar click en crear reserva se redirige a la vista de restaurantes disponibles (restaurantes con reservas menores a 15), todos los campos son requeridos (validación del lado del cliente, fechas anteriores a la actual no son validadas).
+![imagen crud reservas](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/indexReserva.PNG)
+![imagen crud reservas](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/crearReserva.PNG)
+![imagen crud reservas](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/disponibles.PNG)
