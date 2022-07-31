@@ -13,6 +13,6 @@
 ## Acerca del proyecto
 
 ![]()
-[![imaagen home](/images/home.jpg)](
+[![imagen home](https://cdn.appdesign.dev/wp-content/uploads/2020/08/disen%CC%83o-app-restaurantes.jpg]
 
 Sistema de reserva en restaurantes básico hecho con NodeJS, Express,Express Validator MySQL, Ejs.
