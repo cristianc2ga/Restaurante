@@ -1,0 +1,42 @@
+<%- include ../layouts/cabecera.ejs %>
+<div class="container">
+    
+    <br/>
+    <h3>Seleccione el restaurante disponible donde quiere reservar.</h3>
+    <br/>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Dirección</th>
+                <th>Ciudad</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for( let restaurante = 0; restaurante < restaurantes.length; restaurante++ ) { %>
+                <tr>
+                    <td> <%=restaurantes[restaurante].id %>  </td>
+                    <td> <%=restaurantes[restaurante].nombre %> </td>
+                    <td> <%=restaurantes[restaurante].descripcion %> </td>
+                    <td> <%=restaurantes[restaurante].direccion %> </td>
+                    <td> <%=restaurantes[restaurante].ciudad %> </td>
+                    <td> <img class="img-thumbnail" width="200" src="/images/<%=restaurantes[restaurante].foto %>" alt=""> 
+                         </td>
+                    <td> 
+                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <form class="form-inline" method="get" action="/reservas/crear/<%=restaurantes[restaurante].id %>">
+                                <button class="btn btn-info" type="submit">Reservar</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            <% } %>
+            
+        </tbody>
+    </table>
+</div>
+        <%- include ../layouts/pie.ejs %>

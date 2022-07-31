@@ -1,0 +1,39 @@
+<%- include ../layouts/cabecera.ejs %>
+<div class="container">
+    <br/>
+    <br/>
+        <form method="post" action="../actualizar/" enctype="multipart/form-data">
+            <div class="col-sm-5">
+                <input style="display:none;" type="text" name="id" value="<%=restaurante.id %>" />
+                <div class="form-group">
+                    <label for="my-input">Nombre:</label>
+                    <input id="my-input" value="<%=restaurante.nombre %>" class="form-control" type="text" name="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Descripción:</label>
+                    <input id="my-input" value="<%=restaurante.descripcion %>" class="form-control" type="text" name="descripcion">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Dirección:</label>
+                    <input id="my-input" value="<%=restaurante.direccion %>" class="form-control" type="text" name="direccion">
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Ciudad:</label>
+                    <input id="my-input" value="<%=restaurante.ciudad %>" class="form-control" type="text" name="ciudad">
+                </div>
+                
+                <div class="form-group">
+                    <label for="my-input">Imagen</label>
+                    <img class="img-thumbnail" src="../../images/<%=restaurante.foto %>" width="200" alt="">
+                    <input id="my-input" class="form-control-file" type="file" name="archivo">
+                </div>
+            
+                <div class="btn-group-horizontal" role="group" aria-label="Basic example">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    |
+                    <a class="btn btn-danger" href="/restaurantes" role="button">Volver</a>
+                </div>
+            </div>
+    </form>
+</div>
+<%- include ../layouts/pie.ejs %>

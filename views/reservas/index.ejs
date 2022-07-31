@@ -1,0 +1,53 @@
+<%- include ../layouts/cabecera.ejs %>
+<div class="container">
+    
+    <br/>
+    <br/>
+    <a href="/restaurantes/disponibles" class="btn btn-primary" type="button">Crear nueva reserva</a>
+    <br/>
+    <br/>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Mesa</th>
+                <th>Personas</th>
+                <th>Restaurante</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for( let reserva = 0; reserva < reservas.length; reserva++ ) { %>
+                <tr>
+                    <td> <%=reservas[reserva].id %>  </td>
+                    <td> <%=reservas[reserva].nombre %> </td>
+                    <td> <%=reservas[reserva].apellido %> </td>
+                    <td> <%=reservas[reserva].fecha %> </td>
+                    <td> <%=reservas[reserva].hora %> </td>
+                    <td> <%=reservas[reserva].mesa %> </td>
+                    <td> <%=reservas[reserva].personas %> </td>
+                    <td> <%=reservas[reserva].restaurante %> </td>
+                    <td>                   
+                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <form class="form-inline" method="get" action="/reservas/editar/<%=reservas[reserva].id %>">
+                                <button class="btn btn-success" type="submit">Editar</button>
+                            </form>
+                        </div>
+                        |                        
+                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <form class="form-inline" method="post" action="/reservas/eliminar/<%=reservas[reserva].id %>">
+                                <button class="btn btn-danger" type="submit">Cancelar Reserva</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            <% } %>
+            
+        </tbody>
+    </table>
+</div>
+        <%- include ../layouts/pie.ejs %>
