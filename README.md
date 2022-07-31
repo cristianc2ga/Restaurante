@@ -10,9 +10,11 @@
     
   </p>
 </p>
-## Acerca del proyecto
 
 ![imagen home](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/home.PNG)
+
+
+## Acerca del proyecto
 Sistema de reserva en restaurantes básico hecho con NodeJS, Express,Express Validator MySQL, Ejs.
 
 ## Consideraciones
