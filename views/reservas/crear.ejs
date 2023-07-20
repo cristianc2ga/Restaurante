@@ -1,50 +1,54 @@
 <%- include ../layouts/cabecera.ejs %>
-<div class="container">
+<div class="container mt-5 ml-15 mb-5 align-items-center">
     <br/>
-    <h3>Reserva en el restaurante <%=restaurante.nombre %></h3>
     <br/>
-    <form method="post" action="/reservas" >
-        <div class="col-sm-5">
-            <div  class="form-group">
-                <label for="my-input" >Nombre:</label>
-                <input id="my-input" class="form-control" type="text" name="nombre" required>
+    <div class="row justify-content-center">
+        <h3>Reserva en el restaurante <%=restaurante.nombre %></h3>
+        <br/>
+        <div class="col-lg-8">
+        <form method="post" action="/reservas" >
+                <div  class="form-group">
+                    <label for="my-input" >Nombre:</label>
+                    <input id="my-input" class="form-control" type="text" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Apellido:</label>
+                    <input id="my-input" class="form-control" type="text" name="apellido" required>
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Fecha:</label>
+                    <input id="my-input"  class="form-control" type="date" name="fecha" required>
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Hora:</label>
+                    <input id="my-input" class="form-control" type="time" name="hora" required>
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Mesas disponibles:</label>
+                    <input type="text"style="color:red"  readonly class="form-control-plaintext" id="staticMesa" value="<%=mesasDisponibles %>">
+                    <input id="my-input" class="form-control" type="number" name="mesa" min="1" max="15" required>
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Personas: (Máximo 4)</label>
+                    <input id="my-input" class="form-control" type="number" name="personas" min="1"max="4" required>
+                </div>
+                <div style="display:none;" class="form-group">
+                    <label for="my-input">idRestaurante:</label>
+                    <input id="my-input" value=<%=restaurante.id %> class="form-control" type="number" name="idRestaurante">
+                </div>
+                <div style="display:none;" class="form-group">
+                    <label for="my-input">Restaurante:</label>
+                    <input id="my-input" value=<%=restaurante.nombre %> class="form-control" type="text" name="restaurante">
+                </div>
+            
+                <div class="btn-group-horizontal" role="group" aria-label="Basic example">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    |
+                    <a class="btn btn-danger" href="/restaurantes/disponibles" role="button">Volver</a>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="my-input">Apellido:</label>
-                <input id="my-input" class="form-control" type="text" name="apellido" required>
-            </div>
-            <div class="form-group">
-                <label for="my-input">Fecha:</label>
-                <input id="my-input"  class="form-control" type="date" name="fecha" required>
-            </div>
-            <div class="form-group">
-                <label for="my-input">Hora:</label>
-                <input id="my-input" class="form-control" type="time" name="hora" required>
-            </div>
-            <div class="form-group">
-                <label for="my-input">Mesas disponibles:</label>
-                <input type="text"style="color:red"  readonly class="form-control-plaintext" id="staticMesa" value="<%=mesasDisponibles %>">
-                <input id="my-input" class="form-control" type="number" name="mesa" min="1" max="15" required>
-            </div>
-            <div class="form-group">
-                <label for="my-input">Personas: (Máximo 4)</label>
-                <input id="my-input" class="form-control" type="number" name="personas" min="1"max="4" required>
-            </div>
-            <div style="display:none;" class="form-group">
-                <label for="my-input">idRestaurante:</label>
-                <input id="my-input" value=<%=restaurante.id %> class="form-control" type="number" name="idRestaurante">
-            </div>
-            <div style="display:none;" class="form-group">
-                <label for="my-input">Restaurante:</label>
-                <input id="my-input" value=<%=restaurante.nombre %> class="form-control" type="text" name="restaurante">
-            </div>
-        
-            <div class="btn-group-horizontal" role="group" aria-label="Basic example">
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                |
-                <a class="btn btn-danger" href="/restaurantes/disponibles" role="button">Volver</a>
-            </div>
-        </div>
-    </form>
+        </form>
+
+    </div>
 </div>
 <%- include ../layouts/pie.ejs %>

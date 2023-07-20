@@ -1,10 +1,12 @@
 <%- include ../layouts/cabecera.ejs %>
-<div class="container">
+<div class="container mt-5 ml-15 mb-5 align-items-center">
     <br/>
+    <br/>
+    <div class="row justify-content-center">
     <h3>Editando reserva en el restaurante <%=reserva.restaurante %></h3>
     <br/>
+    <div class="col-lg-8">
     <form method="post" action="../actualizar/">
-        <div class="col-sm-5">
             <input  style="display:none;" type="text" name="id" value="<%=reserva.id %>" />
             <div class="form-group">
                 <label for="my-input">Nombre:</label>
@@ -40,5 +42,6 @@
         </div>
         
     </form>
+</div>
 </div>
 <%- include ../layouts/pie.ejs %>

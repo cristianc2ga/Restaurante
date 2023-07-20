@@ -1,9 +1,10 @@
 <%- include ../layouts/cabecera.ejs %>
-<div class="container">
+<div class="container mt-5 ml-15 align-items-center">
     <br/>
     <br/>
+    <div class="row justify-content-center">
         <form method="post" action="../actualizar/" enctype="multipart/form-data">
-            <div class="col-sm-5">
+            <div class="col-lg-12">
                 <input style="display:none;" type="text" name="id" value="<%=restaurante.id %>" />
                 <div class="form-group">
                     <label for="my-input">Nombre:</label>
@@ -35,5 +36,7 @@
                 </div>
             </div>
     </form>
+
+    </div>
 </div>
 <%- include ../layouts/pie.ejs %>

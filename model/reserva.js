@@ -1,62 +1,76 @@
 var conexion = require('../config/conexion');
 
 module.exports={
-    obtener(){
+    obtener() {
         return new Promise((resolve, reject) => {
-            conexion.query(`SELECT date_format(fecha, "%Y-%m-%d") as fecha, id, nombre,apellido,hora,mesa,personas,idRestaurante,restaurante FROM reservas`,
-            (err, resultados) => {
-                if (err) reject(err);
-                else resolve(resultados);
-            });            
-        });
-    },
-    insertar(datos){
-        return new Promise((resolve, reject) => {
-            conexion.query("INSERT INTO reservas (nombre, apellido,fecha,hora,mesa,personas,idRestaurante,restaurante) VALUES (?,?,?,?,?,?,?,?)",
-            [datos.nombre,datos.apellido,datos.fecha,datos.hora, datos.mesa,datos.personas,datos.idRestaurante,datos.restaurante],
-            (err, resultados) => {
-                if (err) reject(err);
-                else resolve(resultados.insertId);
-            });            
-        });
-    },
-    retornarDatosId(id){
-        return new Promise((resolve, reject) => {
-            conexion.query("SELECT * FROM reservas WHERE id=?",[id],
-            (err, resultados) => {
-                if (err) reject(err);
-                else resolve(resultados[0]);
+          conexion
+            .query('SELECT fecha::date as fecha, id, nombre, apellido, hora, mesa, personas, idRestaurante, restaurante FROM reservas')
+            .then((resultados) => {
+              resolve(resultados.rows);
+            })
+            .catch((err) => {
+              reject(err);
             });
         });
-    },
-    borrar(id){
+      },
+      insertar(datos) {
         return new Promise((resolve, reject) => {
-            conexion.query("DELETE FROM reservas WHERE id=?",[id],
-            (err) => {
-                if (err) reject(err);
-                else resolve();
-            });            
-        });
-    },
-    actualizar(datos){
-        return new Promise((resolve, reject) => {
-            conexion.query(`UPDATE reservas SET nombre=?, apellido=?,fecha=?,hora=?,mesa=?,personas=? WHERE id=?`,
-            [datos.nombre,datos.apellido,datos.fecha,datos.hora, datos.mesa,datos.personas,datos.id],
-            (err) => {
-                if (err) reject(err);
-                else resolve();
-            });
-
-        });
-    },
-    obtenerDatosIdRestaurante(id){
-        return new Promise((resolve, reject) => {
-            conexion.query("SELECT  mesa FROM reservas WHERE idRestaurante=?",[id],
+          conexion.query(
+            "INSERT INTO reservas (nombre, apellido, fecha, hora, mesa, personas, idRestaurante, restaurante) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id",
+            [datos.nombre, datos.apellido, datos.fecha, datos.hora, datos.mesa, datos.personas, datos.idRestaurante, datos.restaurante],
             (err, resultados) => {
-                if (err) reject(err);
-                else resolve(resultados);
-            });
+              if (err) reject(err);
+              else resolve(resultados.rows[0].id);
+            }
+          );
         });
-    },
+      },
+      retornarDatosId(id) {
+        return new Promise((resolve, reject) => {
+          conexion.query(
+            "SELECT * FROM reservas WHERE id=$1",
+            [id],
+            (err, resultados) => {
+              if (err) reject(err);
+              else resolve(resultados.rows[0]);
+            }
+          );
+        });
+      }
+      ,
+      borrar(id) {
+        return new Promise((resolve, reject) => {
+          conexion.query("DELETE FROM reservas WHERE id=$1", [id], (err) => {
+            if (err) reject(err);
+            else resolve();
+          });
+        });
+      }
+      ,
+    actualizar(datos) {
+      return new Promise((resolve, reject) => {
+        conexion.query(
+          "UPDATE reservas SET nombre=$1, apellido=$2, fecha=$3, hora=$4, mesa=$5, personas=$6 WHERE id=$7",
+          [datos.nombre, datos.apellido, datos.fecha, datos.hora, datos.mesa, datos.personas, datos.id],
+          (err) => {
+            if (err) reject(err);
+            else resolve();
+          }
+        );
+      });
+    }
+    ,
+    obtenerDatosIdRestaurante(id) {
+        return new Promise((resolve, reject) => {
+          conexion.query(
+            "SELECT mesa FROM reservas WHERE idrestaurante=$1",
+            [id],
+            (err, resultados) => {
+              if (err) reject(err);
+              else resolve(resultados);
+            }
+          );
+        });
+      },
     
 }

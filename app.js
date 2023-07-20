@@ -11,8 +11,6 @@ var usersRouter = require('./routes/users');
 var restaruantesRouter = require('./routes/restaurantes');
 var reservasRouter = require('./routes/reservas');
 
-
-
 var app = express();
 
 // view engine setup
@@ -23,7 +21,6 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extends: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -31,8 +28,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/restaurantes', restaruantesRouter);
 app.use('/reservas', reservasRouter);
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -48,6 +43,18 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// Crear el servidor HTTP
+var http = require('http');
+var server = http.createServer(app);
+
+// Obtener el número de puerto
+var port = process.env.PORT || 3000; // Utiliza el puerto definido por el sistema o el 3000 si no está definido
+
+// Escuchar en el puerto
+server.listen(port, function() {
+  console.log('La aplicación está corriendo en el puerto ' + port);
 });
 
 module.exports = app;

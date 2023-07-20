@@ -17,17 +17,17 @@ module.exports = {
         res.render('restaurantes/crear');
     },
 
-    guardar:function(req, res){
-        console.log(req.body);
-        // console.log(req.file.filename);
-        restaurante.insertar(req.body,req.file)
-                   .then(idRestauranteCreado => {
-                    res.redirect("/restaurantes");
-                   })
-                   .catch(err=>{
-                    return res.status(500).send("Error creando restaurante");
-                   });
-    },
+    guardar: function (req, res) {
+        restaurante.insertar(req.body, req.file)
+            .then(idRestauranteCreado => {
+                res.redirect("/restaurantes");
+            })
+            .catch(err => {
+                console.log("Error al crear el restaurante:", err);
+                return res.status(500).send("Error creando restaurante: " + err.message);
+            });
+    }
+    ,
     eliminar:function(req, res){
         restaurante.retornarDatosId(req.params.id)
                    .then(registro=>{

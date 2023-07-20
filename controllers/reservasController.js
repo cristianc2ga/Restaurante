@@ -23,9 +23,10 @@ module.exports = {
                                     if(registroRes){
                                         var nMesas = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
                                         var resultArray = Object.values(JSON.parse(JSON.stringify(registroRes)))
+                                        // console.log(resultArray)
                                         var temp = [];
-                                        for (i = 0; i < resultArray.length; i++) {
-                                            temp[i] = resultArray[i].mesa;
+                                        if (resultArray.length >= 4 && Array.isArray(resultArray[3])) {
+                                            temp = resultArray[3].map(item => item.mesa);
                                           }
                                         var mesasDisponibles = nMesas.filter(element => !temp.includes(element))
                                         console.log(mesasDisponibles);
@@ -50,7 +51,7 @@ module.exports = {
     insertar:function(req, res){
         console.log(req.body);
         if(req.body.personas > 4){
-            return res.status(500).send("Supera el número maáximo de personas, intente con un valor menor o igual a 4");
+            return res.status(500).send("Supera el número máximo de personas, intente con un valor menor o igual a 4");
         }
         restaurante.retornarDatosId(req.body.idRestaurante)
                 .then(registro=>{
@@ -81,7 +82,7 @@ module.exports = {
     eliminar:function(req, res){
         reserva.retornarDatosId(req.params.id)
                 .then(registro=>{
-                    restaurante.retornarDatosId(registro.idRestaurante)
+                    restaurante.retornarDatosId(registro.idrestaurante)
                                 .then(registroRes=>{
                                     if(registroRes){
                                         var nReservas = registroRes.reservas - 1;
@@ -111,6 +112,7 @@ module.exports = {
                 });
     },
     editar:function(req, res){
+        console.log(req.params.id)
         reserva.retornarDatosId(req.params.id)
                 .then(registro=>{
                     if(registro){
@@ -120,8 +122,8 @@ module.exports = {
                                         var nMesas = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
                                         var resultArray = Object.values(JSON.parse(JSON.stringify(registroRes)))
                                         var temp = [];
-                                        for (i = 0; i < resultArray.length; i++) {
-                                            temp[i] = resultArray[i].mesa;
+                                        if (resultArray.length >= 4 && Array.isArray(resultArray[3])) {
+                                            temp = resultArray[3].map(item => item.mesa);
                                           }
                                         var mesasDisponibles = nMesas.filter(element => !temp.includes(element))
                                         // console.log(mesasDisponibles);
@@ -156,9 +158,9 @@ module.exports = {
                                         var nMesas = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
                                         var resultArray = Object.values(JSON.parse(JSON.stringify(registroRes)))
                                         var temp = [];
-                                        for (i = 0; i < resultArray.length; i++) {
-                                            temp[i] = resultArray[i].mesa;
-                                        }
+                                        if (resultArray.length >= 4 && Array.isArray(resultArray[3])) {
+                                            temp = resultArray[3].map(item => item.mesa);
+                                          }
                                         var mesasDisponibles = nMesas.filter(element => temp.includes(element))
                                         
 
