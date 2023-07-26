@@ -11,7 +11,7 @@
   </p>
 </p>
 
-![imagen home](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/home.PNG)
+![imagen home](https://github.com/cristianc2ga/Restaurante/blob/master/public/images/imagenesReadme/home2.PNG)
 
 
 ## Acerca del proyecto
