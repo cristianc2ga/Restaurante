@@ -1,0 +1,35 @@
+/* Estilos para centrar el contenedor */
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    margin: 0;
+}
+
+/* Estilos para la card */
+.card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    /* Quita los márgenes superior e inferior, ya que los ajustaremos en el contenedor */
+}
+
+.card h1 {
+    margin-bottom: 20px;
+}
+
+.card form div {
+    margin-bottom: 10px;
+}
+
+.card form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}

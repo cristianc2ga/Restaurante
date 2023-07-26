@@ -1,9 +1,16 @@
 var express = require('express');
 var router = express.Router();
+const usersController = require("../controllers/usersController.js");
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+
+// router.get('/', usersController.index);
+router.get('/login', usersController.loginView);
+router.get('/logout', usersController.logout);
+router.get('/registro', usersController.crear);
+router.post("/login" ,usersController.guardar);
+router.get('/homeUsers', usersController.homeUsersView);
+router.get('/homeRestaurantes', usersController.homeRestaurantesView);
+router.post("/home", usersController.home);
+
 
 module.exports = router;

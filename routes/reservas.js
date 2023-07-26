@@ -6,8 +6,9 @@ const { validateCreate } = require('../validators/reservas')
 
 
 
-router.get('/', reservasController.index);
+router.get('/', reservasController.obtenerPorUsuario);
 router.get('/crear/:idRestaurante', reservasController.crear);
+router.get('/obtener/', reservasController.obtenerPorUsuario);
 router.post("/",reservasController.insertar);
 router.post('/eliminar/:id', reservasController.eliminar);
 router.get('/editar/:id', reservasController.editar);

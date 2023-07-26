@@ -13,18 +13,19 @@ module.exports = {
         });
     });
   },
-  insertar(datos, archivos) {
+  insertar(datos, archivos,userId) {
     console.log(archivos.filename);
     return new Promise((resolve, reject) => {
       conexion
         .query(
-          "INSERT INTO restaurantes (nombre, descripcion, direccion, ciudad, foto) VALUES ($1, $2, $3, $4, $5) RETURNING id",
+          "INSERT INTO restaurantes (nombre, descripcion, direccion, ciudad, foto,iduser) VALUES ($1, $2, $3, $4, $5,$6) RETURNING id",
           [
             datos.nombre,
             datos.descripcion,
             datos.direccion,
             datos.ciudad,
             archivos.filename,
+            userId
           ]
         )
         .then((resultados) => {
@@ -108,6 +109,19 @@ module.exports = {
         .catch((err) => {
           reject(err);
         });
+    });
+  },
+  obtenerPorIdUsuario(id) {
+    console.log(id)
+    return new Promise((resolve, reject) => {
+      conexion.query(
+        "SELECT * FROM restaurantes WHERE iduser=$1",
+        [id],
+        (err, resultados) => {
+          if (err) reject(err);
+          else resolve(resultados);
+        }
+      );
     });
   },
 };

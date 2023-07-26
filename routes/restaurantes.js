@@ -20,7 +20,9 @@ var rutaAlmacen = multer.diskStorage({
 var cargar = multer({storage:rutaAlmacen});
 
 /* GET home page. */
-router.get('/', restaurantesController.index);
+router.get('/', restaurantesController.obtenerPorUsuario);
+router.get('/obtener/', restaurantesController.obtenerPorUsuario);
+
 router.get('/crear', restaurantesController.crear);
 router.post("/",cargar.single("archivo"),validateCreate, restaurantesController.guardar);
 router.post('/eliminar/:id', restaurantesController.eliminar);

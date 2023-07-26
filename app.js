@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+const session = require('express-session');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
@@ -23,6 +23,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: 'secreto', // Una cadena aleatoria para firmar la cookie de sesión (puede ser cualquier cosa)
+  resave: false,
+  saveUninitialized: true
+}));
+
+// Middleware para configurar res.locals
+app.use((req, res, next) => {
+  res.locals.userRole = req.session.userRole || null;
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

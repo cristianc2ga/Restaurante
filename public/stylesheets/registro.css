@@ -1,0 +1,61 @@
+/* Estilos para centrar el contenedor */
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    margin: 0;
+}
+
+/* Estilos para la card */
+.card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    margin-top: 50px;
+    /* Quita los márgenes superior e inferior, ya que los ajustaremos en el contenedor */
+}
+
+.card h1 {
+    margin-bottom: 20px;
+}
+
+.card form div {
+    margin-bottom: 10px;
+}
+.card form input {
+    width: 80%;
+}
+
+.card form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Estilos para el popup */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    display: none;
+}
+
+.popup .alert {
+    margin-bottom: 10px;
+}
+
+
+

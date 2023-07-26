@@ -18,7 +18,8 @@ module.exports = {
     },
 
     guardar: function (req, res) {
-        restaurante.insertar(req.body, req.file)
+        const userId = req.cookies.userId;
+        restaurante.insertar(req.body, req.file,userId)
             .then(idRestauranteCreado => {
                 res.redirect("/restaurantes");
             })
@@ -116,5 +117,21 @@ module.exports = {
                    .catch(err => {
                     return res.status(500).send("Error obteniendo restaurantes");
                    });
-    }
+    },
+    obtenerPorUsuario: function (req, res) {
+        const userId = req.cookies.userId;
+        // console.log(userId)
+        restaurante
+          .obtenerPorIdUsuario(userId)
+          .then((datos) => {
+            console.log(datos)
+            res.render("restaurantes/index", {
+              title: "Aplicacion",
+              restaurantes: datos.rows,
+            });
+          })
+          .catch((err) => {
+            return res.status(500).send("Error obteniendo restaurantes");
+          });
+      },
 }

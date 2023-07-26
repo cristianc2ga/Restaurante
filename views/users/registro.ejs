@@ -1,0 +1,78 @@
+<%- include ../layouts/cabecera.ejs %>
+<head>
+    <meta charset="utf-8">
+    <title>Registro de usuario</title>
+    <link rel="stylesheet" href="/stylesheets/registro.css">
+</head>
+<div class="container-fluid mb-5 mt-5">
+    <div class="card">
+        <h1>Registro de usuario</h1>
+        <form id="registroForm" method="post" action="/users/login">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <br/>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <br/>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <br/>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirmar contraseña:</label>
+                <br/>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <span id="passwordError" style="color: red; display: none;">Las contraseñas no coinciden.</span>
+            </div>
+            <div class="form-group">
+                <label for="userType">Seleccionar tipo de usuario:</label>
+                <br/>
+                <select id="userType" name="userType">
+                    <option value="cliente">Cliente</option>
+                    <option value="restaurante">Restaurante</option>
+                    <option value="administrador">Administrador</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" type="submit" onclick="return validatePasswords()">Registrar</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function validatePasswords() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        var passwordError = document.getElementById("passwordError");
+
+        if (password !== confirmPassword) {
+            passwordError.style.display = "block";
+            return false; // Evita el envío del formulario si las contraseñas no coinciden
+        } else {
+            passwordError.style.display = "none";
+            return true; // Permite el envío del formulario si las contraseñas coinciden
+        }
+    }
+</script>
+
+    <!-- Div para mostrar el popup de validación -->
+    <div id="popup" class="popup">
+        <% if(typeof validaciones != 'undefined') { %>
+            <% validaciones.forEach((validacion) => {%> 
+                <div class="alert alert-warning alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">
+                        &times;
+                    </button>
+                    <strong>El campo <%=validacion.param %> es necesario</strong>
+                </div>
+            <% }) %> 
+        <% } %>
+    </div>
+</div>
+
+
+<%- include ../layouts/pie.ejs %>

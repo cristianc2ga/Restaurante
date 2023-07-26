@@ -13,11 +13,12 @@ module.exports={
             });
         });
       },
-      insertar(datos) {
+      insertar(datos,userId) {
+        console.log(userId)
         return new Promise((resolve, reject) => {
           conexion.query(
-            "INSERT INTO reservas (nombre, apellido, fecha, hora, mesa, personas, idRestaurante, restaurante) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id",
-            [datos.nombre, datos.apellido, datos.fecha, datos.hora, datos.mesa, datos.personas, datos.idRestaurante, datos.restaurante],
+            "INSERT INTO reservas (nombre, apellido, fecha, hora, mesa, personas, idRestaurante, restaurante, iduser) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id",
+            [datos.nombre, datos.apellido, datos.fecha, datos.hora, datos.mesa, datos.personas, datos.idRestaurante, datos.restaurante, userId],
             (err, resultados) => {
               if (err) reject(err);
               else resolve(resultados.rows[0].id);
@@ -64,6 +65,19 @@ module.exports={
         return new Promise((resolve, reject) => {
           conexion.query(
             "SELECT mesa FROM reservas WHERE idrestaurante=$1",
+            [id],
+            (err, resultados) => {
+              if (err) reject(err);
+              else resolve(resultados);
+            }
+          );
+        });
+      },
+      obtenerPorIdUsuario(id) {
+        console.log(id)
+        return new Promise((resolve, reject) => {
+          conexion.query(
+            "SELECT fecha::date as fecha, id, nombre, apellido, hora, mesa, personas, idRestaurante, restaurante FROM reservas WHERE iduser=$1",
             [id],
             (err, resultados) => {
               if (err) reject(err);
