@@ -1,9 +1,27 @@
 <%- include ./layouts/cabecera.ejs %>
 <br/>
-
+<style>
+    /* Estilos para que la sección ocupe el alto completo usando Flexbox */
+    .full-height-flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 60vh;
+      background-color: #f2f2f2;
+    }
+  
+    /* Estilos para que la sección ocupe el alto completo usando CSS Grid */
+    .full-height-grid {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      background-color: #e0e0e0;
+    }
+  </style>
 
 <!-- Sección "Sobre nosotros" -->
-<section class="my-5">
+<section class="my-5 full-height-flex">
     <h1>Home de Restaurantes</h1>
 </section>
 
