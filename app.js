@@ -62,7 +62,8 @@ var http = require('http');
 var server = http.createServer(app);
 
 // Obtener el número de puerto
-var port = process.env.PORT || 3001; // Utiliza el puerto definido por el sistema o el 3000 si no está definido
+// var port = process.env.PORT || 3001; // Utiliza el puerto definido por el sistema o el 3000 si no está definido
+var port = 10001; // Utiliza el puerto definido por el sistema o el 3000 si no está definido
 
 // Escuchar en el puerto
 server.listen(port, function() {
