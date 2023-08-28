@@ -32,12 +32,19 @@ module.exports={
             "SELECT * FROM reservas WHERE id=$1",
             [id],
             (err, resultados) => {
-              if (err) reject(err);
-              else resolve(resultados.rows[0]);
+              if (err) {
+                reject(err); // En caso de error, rechaza la promesa con el error
+              } else {
+                if (resultados.rows.length === 0) {
+                  resolve(null); // Si no hay resultados, resuelve la promesa con null
+                } else {
+                  resolve(resultados.rows[0]); // Si hay resultados, resuelve la promesa con el primer resultado
+                }
+              }
             }
           );
         });
-      }
+      }      
       ,
       borrar(id) {
         return new Promise((resolve, reject) => {

@@ -15,41 +15,41 @@ module.exports = {
         });
     });
   },
-  insertar(datos) {
-    console.log(datos);
-    return new Promise((resolve, reject) => {
-        if (datos.password !== datos.confirmPassword) {
-            // Si las contraseñas no coinciden, rechazamos la promesa con un mensaje de error
-            reject("Las contraseñas no coinciden");
-            return;
-        }
+  // ...
+insertar(datos) {
+  return new Promise((resolve, reject) => {
+    if (datos.password !== datos.confirmPassword) {
+      // Si las contraseñas no coinciden, rechazamos la promesa con un mensaje de error
+      reject(new Error('Las contraseñas no coinciden'));
+      return;
+    }
 
-        // Las contraseñas coinciden, procedemos con el hashing de la contraseña
-        bcrypt.hash(datos.password, 10, (err, hash) => {
-            if (err) {
-                reject(err);
-                return;
-            }
+    // Las contraseñas coinciden, procedemos con el hashing de la contraseña
+    bcrypt.hash(datos.password, 10, (err, hash) => {
+      if (err) {
+        reject(err);
+        return;
+      }
 
-            // Ahora, 'hash' contiene la contraseña encriptada
-            // Procedemos con la inserción en la base de datos
-            conexion.query(
-                "INSERT INTO usuarios (nombre, correo, contrasena, role) VALUES ($1, $2, $3, $4) RETURNING id",
-                [
-                    datos.nombre,
-                    datos.email,
-                    hash, // Utilizamos 'hash' en lugar de 'datos.password'
-                    datos.userType,
-                ]
-            )
-            .then((resultados) => {
-                resolve(resultados.rows[0].id);
-            })
-            .catch((err) => {
-                reject(err);
-            });
-        });
+      // Ahora, 'hash' contiene la contraseña encriptada
+      // Procedemos con la inserción en la base de datos
+      conexion.query(
+        "INSERT INTO usuarios (nombre, correo, contrasena, role) VALUES ($1, $2, $3, $4) RETURNING id",
+        [
+          datos.nombre,
+          datos.email,
+          hash, // Utilizamos 'hash' en lugar de 'datos.password'
+          datos.userType,
+        ]
+      )
+      .then((resultados) => {
+        resolve(resultados.rows[0].id);
+      })
+      .catch((err) => {
+        reject(err);
+      });
     });
+  });
 }
 ,
   retornarDatosId(id) {

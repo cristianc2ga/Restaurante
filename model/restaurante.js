@@ -41,7 +41,11 @@ module.exports = {
       conexion
         .query("SELECT * FROM restaurantes WHERE id = $1", [id])
         .then((resultados) => {
-          resolve(resultados.rows[0]);
+          if (resultados.rows.length > 0) {
+            resolve(resultados.rows[0]);
+          } else {
+            resolve(null);
+          }
         })
         .catch((err) => {
           reject(err);

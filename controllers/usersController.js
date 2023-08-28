@@ -11,14 +11,15 @@ module.exports = {
         res.render('users/registro');
     },
     guardar: function (req, res) {
-        console.log(req.body);
+        // console.log(req.body);
         user.insertar(req.body)
             .then(idUsuarioCreado => {
+                console.log("Usuario creado correctamente")
                 res.redirect("/users/login");
             })
             .catch(err => {
-                console.log("Error al crear el restaurante:", err);
-                return res.status(500).send("Error creando restaurante: " + err.message);
+                console.log("Error al crear el usuario:", err);
+                return res.status(500).send("Error al crear el usuario: " + err.message);
             });
     },
     home: function (req, res) {
