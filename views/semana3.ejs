@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptosistemas de Clave Pública</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        /* Contenedor del blog */
+        .blog-container {
+            max-width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para secciones */
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            text-align: justify; /* Justificar el texto */
+        }
+
+        /* Estilos para imágenes */
+        section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        /* Estilos para enlaces */
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilos para el pie de página */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explorando los Criptosistemas de Clave Pública</h1>
+    </header>
+    <div class="blog-container">
+        <section id="introduccion">
+            <img src="https://www.redeszone.net/app/uploads-redeszone.net/2021/11/diferencias_clave_publica_privada_destacada.jpg" alt="Introducción" style="max-width: 500px;">
+            <h2>Introducción</h2>
+            <p>Los criptosistemas de clave pública, también conocidos como criptografía asimétrica, son una parte fundamental de la seguridad en la era digital. En este blog, exploraremos qué es un criptosistema de clave pública, cómo funciona y cuáles son sus algoritmos representativos. También analizaremos sus ventajas y desventajas en comparación con los criptosistemas simétricos, y finalmente, presentaremos un caso práctico de aplicación y algunas observaciones clave para su implementación.</p>
+        </section>
+        <section id="que-es" style="display: flex; align-items: center;">
+            <div style="flex: 2; margin-right: 20px;">
+                <img src="https://protecciondatos-lopd.com/empresas/wp-content/uploads/2020/05/encriptacion-asimetrica.jpg" alt="Qué es el criptosistema de clave pública" style="max-width: 100%;">
+            </div>
+            <div style="flex: 2;">
+                <h2>Qué es el criptosistema de clave pública</h2>
+                <p>Los criptosistemas de clave pública son un tipo de criptografía que utiliza un par de claves: una clave pública y una clave privada. La clave pública se comparte abiertamente y se utiliza para cifrar los mensajes, mientras que la clave privada, que se mantiene en secreto, se usa para descifrarlos. Esto permite a cualquier persona cifrar un mensaje que solo el destinatario con la clave privada correspondiente podrá descifrar.</p>
+            </div>
+        </section>
+        <section id="como-funciona" style="display: flex; align-items: center;">
+            <div style="flex: 1; margin-right: 20px;">
+                <img src="https://juncotic.com/wp-content/uploads/2022/09/rsa_algoritmo-1.jpg" alt="Cómo funciona y algoritmos representativos" style="max-width: 100%;">
+            </div>
+            <div style="flex: 2;">
+                <h2>Cómo funciona y algoritmos representativos</h2>
+                <p>Un criptosistema de clave pública se basa en operaciones matemáticas complejas, como la factorización de números primos o el problema del logaritmo discreto. Los algoritmos más representativos incluyen RSA, DSA (Algoritmo de Firma Digital), y ECC (Criptografía de Curva Elíptica).</p>
+                <p>En RSA, por ejemplo, la clave pública contiene dos números primos grandes multiplicados, mientras que la clave privada incluye la factorización de estos números. Para cifrar un mensaje, se usa la clave pública, y para descifrarlo, se utiliza la clave privada. Esto hace que sea extremadamente difícil para cualquier persona descifrar el mensaje sin la clave privada correspondiente.</p>
+            </div>
+        </section>
+        <section id="ventajas-desventajas" style="display: flex; align-items: center;">
+            <div style="flex: 1; margin-right: 20px;">
+                <img src="https://blog.mailfence.com/wp-content/uploads/2020/12/Symmetric-vs-Asymmetric-encryption-2.jpg" alt="Ventajas, desventajas y diferencias con el criptosistema simétrico" style="max-width: 100%;">
+            </div>
+            <div style="flex: 2;">
+                <h2>Ventajas, desventajas y diferencias con el criptosistema simétrico</h2>
+                <h3>Ventajas:</h3>
+                <ul>
+                    <li>Seguridad: La clave privada se mantiene en secreto, lo que hace que sea más difícil para los atacantes descifrar el mensaje.</li>
+                    <li>Autenticación: Se pueden utilizar para verificar la autenticidad de la fuente de un mensaje a través de firmas digitales.</li>
+                    <li>Escalabilidad: Puede admitir una amplia gama de aplicaciones de seguridad, desde el cifrado de datos hasta la autenticación de sitios web.</li>
+                </ul>
+                <h3>Desventajas:</h3>
+                <ul>
+                    <li>Velocidad: Los algoritmos de clave pública tienden a ser más lentos en comparación con los algoritmos simétricos debido a su complejidad matemática.</li>
+                    <li>Uso intensivo de recursos: Requieren más recursos computacionales para operaciones de cifrado y descifrado.</li>
+                    <li>Tamaño de las claves: Las claves públicas y privadas suelen ser más largas que las claves simétricas, lo que puede ser un desafío para su almacenamiento y transmisión.</li>
+                </ul>
+                <h3>Diferencias con criptosistemas simétricos:</h3>
+                <ul>
+                    <li>En los criptosistemas simétricos, se utiliza la misma clave para cifrar y descifrar, mientras que en los de clave pública se emplean claves distintas.</li>
+                    <li>Los criptosistemas simétricos son más rápidos y requieren menos recursos, pero enfrentan el desafío de compartir la clave de manera segura entre las partes.</li>
+                </ul>
+            </div>
+        </section>
+        <section id="caso-practico" style="display: flex; align-items: center;">
+            <div style="flex: 1; margin-right: 20px;">
+                <img src="https://www.yunbitsoftware.com/blog/wp-content/uploads/2020/11/2888950-e1605889928894.jpg" alt="Caso práctico de aplicación" style="max-width: 100%;">
+            </div>
+            <div style="flex: 2;">
+                <h2>Caso práctico de aplicación</h2>
+                <p>Un caso práctico de aplicación de criptosistemas de clave pública es la seguridad en las comunicaciones en línea. Para lograr esto, se utiliza el algoritmo RSA, que es ampliamente reconocido por su robustez y eficacia en la protección de datos sensibles durante la transferencia en Internet.</p>
+                <p>En situaciones cotidianas, el algoritmo RSA se implementa para cifrar las comunicaciones entre un navegador web y un servidor web a través del protocolo HTTPS (Hypertext Transfer Protocol Secure). Cuando un usuario accede a un sitio web seguro, como un banco en línea o una tienda en línea, RSA se utiliza para cifrar los datos transmitidos, como contraseñas, números de tarjetas de crédito y otra información confidencial.</p>
+                <p>La forma en que funciona es que el servidor web tiene una clave pública y una clave privada RSA. La clave pública se utiliza para cifrar los datos antes de enviarlos al servidor, mientras que la clave privada se mantiene en secreto y se utiliza para descifrar los datos en el servidor. Esto garantiza que cualquier dato transmitido entre el navegador y el servidor esté protegido contra el acceso no autorizado durante la transferencia, brindando una capa adicional de seguridad para los usuarios en línea.</p>
+            </div>
+        </section>
+        <section id="observaciones" style="display: flex; align-items: center;">
+            <div style="flex: 1; margin-right: 20px;">
+                <img src="https://www.tipos.co/wp-content/uploads/2014/12/observacion.jpg" alt="Observaciones y recomendaciones para implementar el criptosistema" style="max-width: 100%;">
+            </div>
+            <div style="flex: 2;">
+                <h2>Observaciones y recomendaciones para implementar el criptosistema</h2>
+                <p>- Clave segura: Mantener la clave privada segura es esencial; cualquier compromiso puede poner en riesgo la seguridad.</p>
+                <p>- Actualizaciones regulares: Los algoritmos criptográficos pueden volverse vulnerables con el tiempo, por lo que es importante mantenerse actualizado con los últimos estándares.</p>
+                <p>- Uso adecuado: Comprender cuándo y cómo utilizar criptosistemas de clave pública es crucial para una implementación efectiva y segura.</p>
+                <p>En resumen, los criptosistemas de clave pública desempeñan un papel fundamental en la seguridad digital, y su comprensión y aplicación adecuadas son esenciales para proteger la confidencialidad y la integridad de la información en un mundo cada vez más interconectado.</p>
+            </div>
+        </section>
+        <section class="bibliografia">
+            <h2>Bibliografía</h2>
+            <p>Hernández, L. (2016). Criptografía de clave asimétrica. En: La criptografía (pp. 93-134). Editorial CSIC Consejo Superior de Investigaciones Científicas.</p>
+            <p>Maillo, J. (2017). Seguridad de la información. En: Sistemas seguros de acceso y transmisión de datos (pp. 76-102). RA-MA Editorial.</p>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="contact-section">
+            <h3>Contacto</h3>
+            <p>Elaborado por: Cristian Camilo Garcia Alarcon</p>
+            <p>Curso: Seguridad en el desarrollo de software </p>
+            <p>Email: cristian.garcia-al@uniminuto.edu.co</p>
+        </div>
+        <p>&copy; 2023. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
